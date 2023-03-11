@@ -5,10 +5,15 @@ import styled from '@emotion/styled'
      display:flex;
      justify-content:center;
      background-color: white;
+   
+     border-radius:10px;
+     max-width:500px;
+     margin:auto;
+     margin-top:20px;
      ul{
 
         display:flex;
-        padding:10px;
+        padding:5px;
         list-style-type:none;
         flex-wrap: wrap;
         & > li{

@@ -40,7 +40,7 @@ import { StyledAddSong } from '../AddSong/AddSong.styled';
     return (
         <StyledAddSong> 
                   <Box>
-             <Label htmlFor='text'>Song Title</Label>
+    
    <Input
      name='title'
      type='text'
@@ -50,7 +50,7 @@ import { StyledAddSong } from '../AddSong/AddSong.styled';
    />
  </Box>
 <Box>
-             <Label htmlFor='email'>Song Artist</Label>
+            
    <Input
      name='email'
      type='email'
@@ -60,7 +60,7 @@ import { StyledAddSong } from '../AddSong/AddSong.styled';
    />
  </Box>
  <Box>
-             <Label htmlFor='email'>Song Album</Label>
+            
    <Input
      name='album'
      onChange={(e)=>setSong({...song,album:e.target.value})}
@@ -75,7 +75,7 @@ import { StyledAddSong } from '../AddSong/AddSong.styled';
     {geners && geners.map((g,i)=><option  selected={g==song.genre}  value={g} key={i}>{g}</option>)}
  </select>
  </Box>
-<Button onClick={()=>{dispatch(setUpdateStart({body:song,id:id}));}} backgroundColor="#3b99df"   mr={2}>Update</Button>
+<Button onClick={()=>{dispatch(setUpdateStart({body:song,id:id}));}} backgroundColor="#3b99df"   mr={2}>Update Song</Button>
         </StyledAddSong> 
     )
     }

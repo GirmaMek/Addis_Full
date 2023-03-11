@@ -129,6 +129,21 @@
 
 import styled from '@emotion/styled'
 export const StyledHome = styled.div`
+.css-1khg7w9{
+  max-width:1000px;
+  margin:auto;
+  background-color:white;
+  border:0.2px solid lightgrey;
+  padding:10px;
+  border-radius:0px;
+  text-align:center;
+  &:nth-child(2){
+    border-radius:5px 5px 0px 0px;
+  }
+  &:last-child{
+    border-radius:0px 0px 5px 5px;
+  }
+}
 .stat-cont {  
   height: 100vh
   width: 100vw;
@@ -145,10 +160,38 @@ export const StyledHome = styled.div`
 
 .total-cont {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+  width:100%;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
+  & > div {
+    margin:20px;
+    border-radius:10px;
+    display:flex !important;
+ 
+    background-color:rgb(0 0 0 / 0.5) !important;
+    color:white;
+    h2{
+      font-family:arial;
+      width:auto;
+      margin-right:10px;
+    
+    }
+    div{
+      font-size:22px;
+      margin-right:auto;
+      margin-top:3px !important;
+    }
+    
+    width:100%;
+    max-width:200px;
+    padding:20px;
+  }
+  h2{
+    width:100%;
+  }
 }
 
 .total-cont h1 {
@@ -171,12 +214,15 @@ export const StyledHome = styled.div`
   display: flex;
   flex-direction: row;
   align-items: left;
-  justify-content: center;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
 }
 
 .total-gener{
   margin-right: 1rem;
   margin-bottom: 1rem;
+  min-width:200px;
+ 
 };
 .total-song-album{
   margin-right: 1rem;

@@ -20,60 +20,180 @@ import { StyledHome } from '../Home/Home.styled';
          {
           stats?.data && <div className='stat-cont'>
           <div className='total-cont'>
-              <h1>Total</h1>
-              <div>
+             
+              <Card width={256}>
+  <Heading>Songs</Heading>
+  <Text
+  fontWeight='bold'
+  color='primary'>
+  {stats.data.totals[0].title}
+</Text>
+
+</Card>
+<Card width={256}>
+  <Heading>Artists</Heading>
+  <Text
+  
+  fontWeight='bold'
+  color='primary'>
+  {stats.data.totals[0].artist}
+</Text>
+
+</Card>
+<Card width={256}>
+  <Heading>Genre</Heading>
+  <Text
+  
+  fontWeight='bold'
+  color='primary'>
+  {stats.data.totals[0].gener}
+</Text>
+
+</Card>
+<Card width={256}>
+  <Heading>Albums</Heading>
+  <Text
+  
+  fontWeight='bold'
+  color='primary'>
+  {stats.data.totals[0].album}
+</Text>
+
+</Card>
+              {/* <div>
                 <span>song:{stats.data.totals[0].title}</span>
                 <span>artist:{stats.data.totals[0].artist}</span>
               </div>
               <div>
                 <span>album:{stats.data.totals[0].album}</span>
                 <span>genre:{stats.data.totals[0].gener}</span>
-              </div>
+              </div> */}
             </div>
             <div className='stat-each-cont'>
+
             <div className='total-gener'>
               <h1>No Genre</h1>
-              <table>
-                <tbody>
+              <Flex mx={-2}>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='black' bg='white'>
+      No
+    </Text>
+  </Box>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='black' bg='white'>
+    Gener
+    </Text>
+  </Box>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='balck' bg='white'>
+     Songs
+    </Text>
+  </Box>
+</Flex>
                 {
-                 stats?.data.noOfSongsInEachGener.map(g=><tr>
-                  <td>{g.gener}</td>
-                  <td>{g.totalSongs}</td>
-                </tr>
+                 stats?.data.noOfSongsInEachGener.map((g,i)=>            <Flex mx={-2}>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='black' bg='white'>
+      {i+1}
+    </Text>
+  </Box>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='black' bg='white'>
+      {g.gener}
+    </Text>
+  </Box>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='balck' bg='white'>
+      {g.totalSongs}
+    </Text>
+  </Box>
+</Flex>
                 )
                 }
-                 
-                </tbody>
-              </table>
             </div>
             <div className='total-song-album'>
               <h1>No Song & Album in Artist</h1>
-              <table>
-                <tbody>
+              <Flex mx={-2}>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='black' bg='white'>
+      No
+    </Text>
+  </Box>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='black' bg='white'>
+    Artist
+    </Text>
+  </Box>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='balck' bg='white'>
+     Albums
+    </Text>
+  </Box>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='balck' bg='white'>
+     Songs
+    </Text>
+  </Box>
+</Flex>
                 {
-                 stats?.data.noOfAlbumAndSongInEachArtist.map(g=><tr>
-                  <td>{g.artist}</td>
-                  <td>{g.totalAlbums}</td>
-                  <td>{g.totalSongs}</td>
-                </tr>
+                 stats?.data.noOfAlbumAndSongInEachArtist.map((g,i)=>              <Flex mx={-2}>
+                  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+                    <Text p={1} color='black' bg='white'>
+                      {i+1}
+                    </Text>
+                  </Box>
+                  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+                    <Text p={1} color='black' bg='white'>
+                      {g.artist}
+                    </Text>
+                  </Box>
+                  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+                    <Text p={1} color='black' bg='white'>
+                    {g.totalAlbums}
+                    </Text>
+                  </Box>
+                  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+                    <Text p={1} color='balck' bg='white'>
+                      {g.totalSongs}
+                    </Text>
+                  </Box>
+                </Flex>
                 )
                 }
-                </tbody>
-              </table>
+              
             </div>
             <div className='total-album'>
               <h1>No Album</h1>
-              <table>
-                <tbody>
+              <Flex mx={-2}>
+ 
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='balck' bg='white'>
+     Albums
+    </Text>
+  </Box>
+  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+    <Text p={1} color='balck' bg='white'>
+     Songs
+    </Text>
+  </Box>
+</Flex>
                 {
-                 stats?.data.noOfSongsInEachAlbum.map(g=><tr>
-                  <td>{g.album}</td>
-                  <td>{g.totalSongs}</td>
-                </tr>
+                 stats?.data.noOfSongsInEachAlbum.map((g,i)=>              <Flex mx={-2}>
+                 
+                  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+                    <Text p={1} color='black' bg='white'>
+                    {g.album}
+                    </Text>
+                  </Box>
+                  <Box width={1/2}  paddingBottom={0.5} px={0.5}>
+                    <Text p={1} color='balck' bg='white'>
+                    {g.totalSongs}
+                    </Text>
+                  </Box>
+                </Flex>
                 )
                 }
-                </tbody>
-              </table>
+              
             </div>
             </div>
           </div>

@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom'
         justifyContent:"center",
         display: "flex",
         borderRadius: 2,
-        boxShadow: '0 0 16px rgba(0, 0, 0, .25)',
+      
       }}>
            <ul>
              <li> <NavLink to="/">Home</NavLink></li>

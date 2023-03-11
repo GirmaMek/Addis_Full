@@ -1,7 +1,7 @@
 
     import styled from "styled-components";
     export const StyledAddSong = styled.div`
-      max-width: 1300px;
+      max-width: 400px;
       margin:auto;
       margin-top: 30px;
       background-color:  white;
@@ -25,7 +25,7 @@
       select{
         border:none;
         padding:5px;
-        background-color: white;
+        background-color: #F2EBE4;
         border-radius: 5px;
         margin-bottom: 10px;
         color:#202020;

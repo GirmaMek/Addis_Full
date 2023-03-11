@@ -61,7 +61,7 @@ import { getGenersFetch, getSongsFetch, selectGeners, selectMessage, selectSongs
  </select>
  </Box>
 
- <Button onClick={()=>{dispatch(setAddStart({body:song}));}} backgroundColor="#3b99df"    mr={2}>Add</Button>
+ <Button onClick={()=>{dispatch(setAddStart({body:song}));}} backgroundColor="#3b99df"    mr={2}>Add Song</Button>
          </StyledAddSong> 
      )
     }

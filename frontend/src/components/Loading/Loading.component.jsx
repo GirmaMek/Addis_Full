@@ -4,7 +4,8 @@
     export default function Loading() {
     return (
         <StyledLoading> 
-           <img src="/assets/loading btn.svg" alt=""  />
+
+           <img src="/assets/loading.gif" style={{transform:"scale(0.3)"}} width={"10px"} height={"200px"} alt=""  />
         </StyledLoading> 
     )
     }
