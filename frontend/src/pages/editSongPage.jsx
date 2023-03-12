@@ -2,13 +2,15 @@
     import React, { useEffect ,useState} from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
-import { Flex, Box,Card,Heading, Text,Button} from "rebass";
-import { Label, Input } from '@rebass/forms'
-import { getGenersFetch, getSongsFetch, selectGeners, selectMessage, selectSongs,setUpdateStart } from '../../redux/reducers/songs.reducer';
-import { StyledAddSong } from '../AddSong/AddSong.styled';
-    export default function EditSong() {
+import { Box,Button} from "rebass";
+import {  Input } from '@rebass/forms'
+import {  selectIsLoading, selectMessage, selectSongs,setUpdateStart } from '../redux/appDataSlice';
+import { FormStyled } from '../styles/styled';
+export default function EditSong() {
+
        const {id} =  useParams();
        const dispatch = useDispatch();
+       const isLoading = useSelector(selectIsLoading);
        const navigator = useNavigate();
        const message = useSelector(selectMessage);
        const geners = ['Rock', 'Pop', 'Hip Hop', 'Electronic', 'Classical'];
@@ -38,7 +40,7 @@ import { StyledAddSong } from '../AddSong/AddSong.styled';
            }
     },[songList]);
     return (
-        <StyledAddSong> 
+        <FormStyled className={isLoading && "hidden"}> 
                   <Box>
     
    <Input
@@ -70,13 +72,14 @@ import { StyledAddSong } from '../AddSong/AddSong.styled';
    />
  </Box>
  <Box>
-    <select onChange={(e)=>setSong({...song,genre:e.target.selectedOptions[0].value})}>
+    <select  
+      onChange={(e)=>setSong({...song,genre:e.target.selectedOptions[0].value})}>
     <option disabled selected >Select gener</option>
     {geners && geners.map((g,i)=><option  selected={g==song.genre}  value={g} key={i}>{g}</option>)}
  </select>
  </Box>
 <Button onClick={()=>{dispatch(setUpdateStart({body:song,id:id}));}} backgroundColor="#3b99df"   mr={2}>Update Song</Button>
-        </StyledAddSong> 
+        </FormStyled> 
     )
     }
             

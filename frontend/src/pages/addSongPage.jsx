@@ -4,13 +4,14 @@ import { useSelector,useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { Flex, Box,Card,Heading, Text,Button} from "rebass";
 import { Label, Input } from '@rebass/forms'
-import { getGenersFetch, getSongsFetch, selectGeners, selectMessage, selectSongs,setAddStart,setUpdateStart } from '../../redux/reducers/songs.reducer';
-    import { StyledAddSong } from './AddSong.styled'
-    export default function AddSong() {
+import { getGenersFetch, getSongsFetch, selectGeners, selectIsLoading, selectMessage, selectSongs,setAddStart,setUpdateStart } from '../redux/appDataSlice';
+import { FormStyled } from '../styles/styled'
+export default function AddSong() {
         const {id} =  useParams();
         const dispatch = useDispatch();
         const navigator = useNavigate();
         const message =  useSelector(selectMessage);
+        const isLoading = useSelector(selectIsLoading);
         const geners = ['Rock', 'Pop', 'Hip Hop', 'Electronic', 'Classical'];
         const [song,setSong] = useState({
          title:"",
@@ -23,7 +24,7 @@ import { getGenersFetch, getSongsFetch, selectGeners, selectMessage, selectSongs
              navigator("/");
           },[message]);
      return (
-         <StyledAddSong> 
+         <FormStyled className={isLoading && "hidden"}> 
              <Box>
            
    <Input
@@ -62,7 +63,7 @@ import { getGenersFetch, getSongsFetch, selectGeners, selectMessage, selectSongs
  </Box>
 
  <Button onClick={()=>{dispatch(setAddStart({body:song}));}} backgroundColor="#3b99df"    mr={2}>Add Song</Button>
-         </StyledAddSong> 
+         </FormStyled> 
      )
     }
             

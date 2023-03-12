@@ -1,17 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
         const songsSlice = createSlice({
-          name: 'songs',
+          name: 'appData',
           initialState: {
-            list:[],
+            songs:[],
             stats:null,
             geners:[],
             isLoading:true,
+            theme:"light",
             error:"",
             message:""
           },
           reducers: {
+            setAddStart:(state,action)=>{
+              state.isLoading = true;
+             },
+             setAddSuccess:(state,action)=>{
+              state.message =  action.payload.message;
+              state.isLoading = false;
+             },
               setError:(state,action)=>{
                 state.error = action.payload;
+              },
+              setTheme:(state,action)=>{
+                state.theme = action.payload;
               },
               setMessage:(state,action)=>{
                 state.message = action.payload;
@@ -23,13 +34,7 @@ import { createSlice } from '@reduxjs/toolkit';
                 state.message = action.payload.message;
                 state.isLoading = false;
               }, 
-               setAddStart:(state,action)=>{
-                state.isLoading = true;
-               },
-               setAddSuccess:(state,action)=>{
-                state.message =  action.payload.message;
-                state.isLoading = false;
-               },
+             
                setUpdateStart:(state,action)=>{
                 state.isLoading = true;
                },
@@ -47,14 +52,13 @@ import { createSlice } from '@reduxjs/toolkit';
                   state.isLoading = true;
                 },
                 getSongsSuccess:(state,action) => {
-                  state.list = action.payload;
+                  state.songs = action.payload;
                   state.isLoading = false;
                 },
                 getGenersSuccess:(state,action) => {
                   state.geners = action.payload;
                   state.isLoading = false;
                 },
-                //arif new
                 getStatsSuccess:(state,action) => {
                   const dat = action.payload;
                   state.stats =          
@@ -87,11 +91,12 @@ import { createSlice } from '@reduxjs/toolkit';
                 },
           }
         })
-        export const {setError,setMessage, setAddStart,setAddSuccess,setDeleteStart,setDeleteSuccess,setUpdateStart,setUpdateSuccess, getSongsFetch,getSongsError,getSongsSuccess,getGenersFetch,getStatsFetch,getGenersSuccess,getStatsSuccess} = songsSlice.actions;
-        export const selectSongs = (state) => state.songs.list;
-        export const selectError = (state) => state.songs.error;
-        export const selectMessage = (state) => state.songs.message;
-        export const selectStats = (state) => state.songs.stats;
-        export const selectGeners = (state) => state.songs.geners;
-        export const selectIsLoading = (state) => state.songs.isLoading;
-        export default songsSlice.reducer;
+  export const { setAddStart,setAddSuccess,setError,setTheme, setMessage,setDeleteStart,setDeleteSuccess, getSongsFetch,getSongsError ,setUpdateStart,setUpdateSuccess,getSongsSuccess,getGenersFetch,getStatsFetch,getGenersSuccess,getStatsSuccess} = songsSlice.actions;
+  export const selectSongs = (state) => state.appData.songs;
+  export const selectStats = (state) => state.appData.stats;
+  export const selectGeners = (state) => state.appData.geners;
+  export const selectTheme = (state) => state.appData.theme;
+  export const selectError = (state) => state.appData.error;
+  export const selectMessage = (state) => state.appData.message;
+  export const selectIsLoading = (state) => state.appData.isLoading;
+  export default songsSlice.reducer;
